@@ -1,17 +1,26 @@
-import { Mail, Notifications, Pets } from "@mui/icons-material";
+import {
+  Mail,
+  Notifications,
+  PersonAdd,
+  Settings,
+  Logout,
+} from "@mui/icons-material";
 import {
   AppBar,
   Avatar,
   Badge,
   Box,
   InputBase,
+  ListItemIcon,
   Menu,
-  MenuItem,
   styled,
   Toolbar,
   Typography,
+  MenuItem,
 } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
+import sri from "../Static/Images/Srija.png";
+import BubbleChartIcon from "@mui/icons-material/BubbleChart";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -48,9 +57,9 @@ function Navbar() {
     <AppBar position="sticky">
       <StyledToolbar>
         <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
-          LAMA DEV
+          AviSri
         </Typography>
-        <Pets sx={{ display: { xs: "block", sm: "none" } }} />
+        <BubbleChartIcon sx={{ display: { xs: "block", sm: "none" } }} />
         <Search>
           <InputBase placeholder="search..." />
         </Search>
@@ -63,16 +72,13 @@ function Navbar() {
           </Badge>
           <Avatar
             sx={{ width: 30, height: 30 }}
-            src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            src={sri}
             onClick={(e) => setOpen(true)}
           />
         </Icons>
         <UserBox onClick={(e) => setOpen(true)}>
-          <Avatar
-            sx={{ width: 30, height: 30 }}
-            src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-          />
-          <Typography variant="span">John</Typography>
+          <Avatar sx={{ width: 30, height: 30 }} src={sri} />
+          <Typography variant="span">AviSri</Typography>
         </UserBox>
       </StyledToolbar>
       <Menu
@@ -89,9 +95,27 @@ function Navbar() {
           horizontal: "right",
         }}
       >
-        <MenuItem>Profile</MenuItem>
-        <MenuItem>My account</MenuItem>
-        <MenuItem>Logout</MenuItem>
+        <MenuItem>
+          <Avatar sx={{ width: 24, height: 26 }} /> &nbsp; &nbsp; Profile
+        </MenuItem>
+        <MenuItem>
+          <ListItemIcon>
+            <PersonAdd fontSize="small" />
+          </ListItemIcon>
+          Add another account
+        </MenuItem>
+        <MenuItem>
+          <ListItemIcon>
+            <Settings fontSize="small" />
+          </ListItemIcon>
+          Settings
+        </MenuItem>
+        <MenuItem>
+          <ListItemIcon>
+            <Logout fontSize="small" />
+          </ListItemIcon>
+          Logout
+        </MenuItem>
       </Menu>
     </AppBar>
   );
